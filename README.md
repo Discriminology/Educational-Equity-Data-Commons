@@ -20,5 +20,9 @@
 - 2011/12 school data
 - 2013/14 school data
 - 2015/16 school data
+- District Geodata
+
+[Summary table](https://docs.google.com/spreadsheets/d/1h2x2jN24vmPVcQ2Ia72kezs0hD-E0xkjyIhXDCgMq5I/edit#gid=0) of school and district data
+
 
 
