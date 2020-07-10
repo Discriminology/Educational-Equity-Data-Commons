@@ -1,5 +1,10 @@
-# Utility functions for parsing school and district data
 import pandas as pd
+
+"""
+
+Utility functions for parsing school and district data
+
+"""
 
 def join_col_descriptions(agg_data):
     '''
@@ -70,7 +75,7 @@ def categorize_school_level(SCH_GRADE_KG, SCH_GRADE_G01,
     	SCH_GRADE_G06, SCH_GRADE_G07, SCH_GRADE_G08]) >= 8:
         return "Other"
     
-    # 6-12
+    # 6-12	
     elif sum([SCH_GRADE_G06, SCH_GRADE_G07, SCH_GRADE_G08, SCH_GRADE_G09, SCH_GRADE_G10, SCH_GRADE_G11, SCH_GRADE_G12]) >= 6:
         return "Secondary School"
     
@@ -87,6 +92,9 @@ def categorize_school_level(SCH_GRADE_KG, SCH_GRADE_G01,
           SCH_GRADE_G04, SCH_GRADE_G05, SCH_GRADE_G06]) >= 2 and sum([SCH_GRADE_G07, SCH_GRADE_G08]) == 0:
         return 'Elementary School'
     
+    elif sum([SCH_GRADE_KG, SCH_GRADE_G01]) >= 1:
+    	return 'Elementary School'	
+
     # 6
     elif SCH_GRADE_G06:
         return "Middle School"
