@@ -60,22 +60,38 @@ def categorize_school_level(SCH_GRADE_KG, SCH_GRADE_G01,
     SCH_GRADE_G12 = SCH_GRADE_G12 == 'Yes'
 
     
-    if sum([SCH_GRADE_G06, SCH_GRADE_G07, SCH_GRADE_G08, SCH_GRADE_G09, SCH_GRADE_G10, SCH_GRADE_G11, SCH_GRADE_G12]) >= 6:
+    # K-12
+    if sum([SCH_GRADE_KG, SCH_GRADE_G01, SCH_GRADE_G02, SCH_GRADE_G03, SCH_GRADE_G04, SCH_GRADE_G05,
+    	SCH_GRADE_G06, SCH_GRADE_G07, SCH_GRADE_G08, SCH_GRADE_G09, SCH_GRADE_G10, SCH_GRADE_G11, SCH_GRADE_G12]) >= 12:
+        return "Other"
+    
+    # K-8
+    elif sum([SCH_GRADE_KG, SCH_GRADE_G01, SCH_GRADE_G02, SCH_GRADE_G03, SCH_GRADE_G04, SCH_GRADE_G05,
+    	SCH_GRADE_G06, SCH_GRADE_G07, SCH_GRADE_G08]) >= 8:
+        return "Other"
+    
+    # 6-12
+    elif sum([SCH_GRADE_G06, SCH_GRADE_G07, SCH_GRADE_G08, SCH_GRADE_G09, SCH_GRADE_G10, SCH_GRADE_G11, SCH_GRADE_G12]) >= 6:
         return "Secondary School"
     
-    if sum([SCH_GRADE_G09, SCH_GRADE_G10, SCH_GRADE_G11, SCH_GRADE_G12]) >= 2:
+    # 9-12
+    elif sum([SCH_GRADE_G09, SCH_GRADE_G10, SCH_GRADE_G11, SCH_GRADE_G12]) >= 2:
         return "High School"
     
+    # 5-9
     elif sum([SCH_GRADE_G05, SCH_GRADE_G06, SCH_GRADE_G07, SCH_GRADE_G08, SCH_GRADE_G09]) >= 2:
         return "Middle School"
     
+    # K-6 or 7-8
     elif sum([SCH_GRADE_KG, SCH_GRADE_G01, SCH_GRADE_G02, SCH_GRADE_G03,
           SCH_GRADE_G04, SCH_GRADE_G05, SCH_GRADE_G06]) >= 2 and sum([SCH_GRADE_G07, SCH_GRADE_G08]) == 0:
         return 'Elementary School'
     
+    # 6
     elif SCH_GRADE_G06:
         return "Middle School"
     
+    # 9
     elif SCH_GRADE_G09:
         return "High School"
 
