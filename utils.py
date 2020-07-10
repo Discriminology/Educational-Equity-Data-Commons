@@ -60,6 +60,9 @@ def categorize_school_level(SCH_GRADE_KG, SCH_GRADE_G01,
     SCH_GRADE_G12 = SCH_GRADE_G12 == 'Yes'
 
     
+    if sum([SCH_GRADE_G06, SCH_GRADE_G07, SCH_GRADE_G08, SCH_GRADE_G09, SCH_GRADE_G10, SCH_GRADE_G11, SCH_GRADE_G12]) >= 6:
+        return "Secondary School"
+    
     if sum([SCH_GRADE_G09, SCH_GRADE_G10, SCH_GRADE_G11, SCH_GRADE_G12]) >= 2:
         return "High School"
     
