@@ -1,4 +1,20 @@
 # Utility functions for parsing school and district data
+import pandas as pd
+
+def join_col_descriptions(agg_data):
+    '''
+    INPUTS
+    
+    frames (list of DataFrames): Array of dataframes with field codes and descriptions
+    agg_data (DataFrame): Aggregated data with coded fields as columns
+    year (STR): year range of data e.g. '2015-16'
+    
+    '''
+    final = pd.merge(agg_data.T, descriptions, left_index=True, right_index=True, how='left').set_index('description', append=True).T
+    final.to_csv(f'~/Desktop/discriminology/output/final_data_three_years.csv')
+    return final
+    
+
 
 def aggregate_data(frame_array, desired_fields):
 
