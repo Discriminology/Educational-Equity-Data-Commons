@@ -17,7 +17,7 @@
 |---|---|
 | Elementary  | Any combination of pre-K through 5th grade; pre-K + K  |
 | Middle  | 7-8; 6-8; 6th grade academies  |
-| High  | 9-12; 10-12; 11-12; 9th grade academies  |
+| High  | 9-12th; 10-12th; 11-12th; 9th grade academies; 12th grade academies  |
 | Secondary  | 6-12th  |
 | Other  | No grades (applies to alt schools); K-12; K-8  |
 
