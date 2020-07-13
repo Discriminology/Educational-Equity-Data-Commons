@@ -12,6 +12,10 @@ CREATE TABLE schools (
     "SCHID" text,
     "SCH_NAME" text,
     "JJ" text,
+    "SCH_ZIP" text,
+    "SCH_CITY" text,
+    "SCH_ADDRESS" text,
+    "SCH_FTESECURITY_IND" text,
     "SCH_GRADE_PS" text,
     "SCH_GRADE_KG" text,
     "SCH_GRADE_G01" text,
@@ -86,6 +90,10 @@ CREATE TABLE schools (
     "SCH_APENR_HP_F" double precision,
     "SCH_APENR_TR_F" double precision,
     "TOT_APENR_F" double precision,
+    "SCH_APENR_IDEA_M" double precision,
+    "SCH_APENR_IDEA_F" double precision,
+    "SCH_APENR_LEP_M" double precision,
+    "SCH_APENR_LEP_F" double precision,
     "SCH_IDEAENR_AM_M" double precision,
     "SCH_IDEAENR_AS_M" double precision,
     "SCH_IDEAENR_HI_M" double precision,
@@ -229,7 +237,7 @@ CREATE TABLE schools (
     "SCH_DISCWDIS_ARR_IDEA_WH_F" double precision,
     "SCH_DISCWDIS_ARR_IDEA_HP_F" double precision,
     "SCH_DISCWDIS_ARR_IDEA_TR_F" double precision,
-    "TOT_DISCWDIS_ARR_IDEA_F" double precision,
+    "TOT_DISCWDIS_ARR_IDEA_F" double precision
     
 );
 
