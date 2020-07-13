@@ -16,7 +16,7 @@
 
    | School level  | Grade Span  |
    |---|---|
-   | Elementary  | Any combination of pre-K through 5th grade; pre-K + K  |
+   | Elementary  | Any combination of pre-K through 5th; pre-K + K  |
    | Middle  | 7-8; 6-8; 6th grade academies  |
    | High  | 9-12th; 10-12th; 11-12th; 9th grade academies; 12th grade academies  |
    | Secondary  | 6-12th  |
