@@ -29,7 +29,7 @@
 
 ### Analysis overview
 
-After aggregating the data at the school and district level, we compute the fields in [this document](https://docs.google.com/document/d/1ZIK8-lsurTP1EPaxh7rvfcUWf2kPhTICwNCeIxdRoC0/edit#):
+After aggregating the data at the school and district level, we compute the district rates, national rates, and risk ratios defined in [this document](https://docs.google.com/document/d/1ZIK8-lsurTP1EPaxh7rvfcUWf2kPhTICwNCeIxdRoC0/edit#):
 
 The code in `generate_metric_queries.ipynb` programmatically generates the lines of the query in `national_rates_table.sql` for all gender x race x disability status combinations.
 
