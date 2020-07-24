@@ -1,4 +1,10 @@
-SELECT ("bl_m_wodis_multoos_rate" / "ntl_all_races_m_wodis_multoos_rate") as bl_m_wodis_multoos_risk_ratio_all_races
+DROP TABLE if exists risk_ratio;
+
+CREATE TABLE risk_ratio as (
+SELECT "LEAID"
+	, "YEAR"
+	, "LEA_STATE_NAME"
+	,("bl_m_wodis_multoos_rate" / "ntl_all_races_m_wodis_multoos_rate") as bl_m_wodis_multoos_risk_ratio_all_races
 	, ("bl_m_wodis_multoos_rate" / "ntl_wh_m_wodis_multoos_rate") as bl_m_wodis_multoos_risk_ratio_white
 	, ("bl_f_wodis_multoos_rate" / "ntl_all_races_f_wodis_multoos_rate") as bl_f_wodis_multoos_risk_ratio_all_races
 	, ("bl_f_wodis_multoos_rate" / "ntl_wh_f_wodis_multoos_rate") as bl_f_wodis_multoos_risk_ratio_white
@@ -335,6 +341,7 @@ SELECT ("bl_m_wodis_multoos_rate" / "ntl_all_races_m_wodis_multoos_rate") as bl_
 	, ("tr_both_genders_wdis_arr_idea_rate" / "ntl_all_races_both_genders_wdis_arr_idea_rate") as tr_both_genders_wdis_arr_idea_risk_ratio_all_races
 	, ("tr_both_genders_wdis_arr_idea_rate" / "ntl_wh_both_genders_wdis_arr_idea_rate") as tr_both_genders_wdis_arr_idea_risk_ratio_white
 	FROM
-(SELECT * FROM district_rates CROSS JOIN national_rates) full_table;
+(SELECT * FROM district_rates CROSS JOIN national_rates) full_table
+);
 
 
