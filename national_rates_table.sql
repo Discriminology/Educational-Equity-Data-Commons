@@ -1,4 +1,6 @@
+DROP TABLE if exists national_rates;
 
+CREATE TABLE national_rates as (
 SELECT SUM("SCH_DISCWODIS_MULTOOS_WH_M") / SUM(NULLIF("SCH_ENR_WH_M", 0)) as ntl_WH_M_WODIS_MULTOOS_rate
 , SUM("SCH_DISCWODIS_MULTOOS_WH_F") / SUM(NULLIF("SCH_ENR_WH_F", 0)) as ntl_WH_F_WODIS_MULTOOS_rate
 , SUM("SCH_DISCWODIS_MULTOOS_WH_F" + "SCH_DISCWODIS_MULTOOS_WH_M") / SUM((NULLIF("SCH_ENR_WH_F", 0) + NULLIF("SCH_ENR_WH_M", 0))) as ntl_WH_both_genders_WODIS_MULTOOS_rate
@@ -29,9 +31,6 @@ SELECT SUM("SCH_DISCWODIS_MULTOOS_WH_M") / SUM(NULLIF("SCH_ENR_WH_M", 0)) as ntl
 , SUM("SCH_APENR_WH_M") / SUM(NULLIF("SCH_ENR_WH_M", 0)) as ntl_WH_M_APENR_rate
 , SUM("SCH_APENR_WH_F") / SUM(NULLIF("SCH_ENR_WH_F", 0)) as ntl_WH_F_APENR_rate
 , SUM("SCH_APENR_WH_F" + "SCH_APENR_WH_M") / SUM(NULLIF("SCH_ENR_WH_F", 0) + NULLIF("SCH_ENR_WH_M", 0)) as ntl_WH_both_genders_APENR_rate
-
-# metrics for all races
-
 , SUM("TOT_DISCWODIS_MULTOOS_M") / SUM(NULLIF("TOT_ENR_M", 0)) as ntl_all_races_M_WODIS_MULTOOS_rate
 , SUM("TOT_DISCWODIS_MULTOOS_F") / SUM(NULLIF("TOT_ENR_F", 0)) as ntl_all_races_F_WODIS_MULTOOS_rate
 , SUM("TOT_DISCWODIS_MULTOOS_F" + "TOT_DISCWODIS_MULTOOS_M") / SUM((NULLIF("TOT_ENR_F", 0) + NULLIF("TOT_ENR_M", 0))) as ntl_all_races_both_genders_WODIS_MULTOOS_rate
@@ -61,4 +60,8 @@ SELECT SUM("SCH_DISCWODIS_MULTOOS_WH_M") / SUM(NULLIF("SCH_ENR_WH_M", 0)) as ntl
 , SUM("TOT_GTENR_F" + "TOT_GTENR_M") / SUM(NULLIF("TOT_ENR_F", 0) + NULLIF("TOT_ENR_M", 0)) as ntl_all_races_both_genders_GTENR_rate
 , SUM("TOT_APENR_M") / SUM(NULLIF("TOT_ENR_M", 0)) as ntl_all_races_M_APENR_rate
 , SUM("TOT_APENR_F") / SUM(NULLIF("TOT_ENR_F", 0)) as ntl_all_races_F_APENR_rate
-, SUM("TOT_APENR_F" + "TOT_APENR_M") / SUM(NULLIF("TOT_ENR_F", 0) + NULLIF("TOT_ENR_M", 0)) as ntl_all_races_both_genders_APENR_rate from districts;
+, SUM("TOT_APENR_F" + "TOT_APENR_M") / SUM(NULLIF("TOT_ENR_F", 0) + NULLIF("TOT_ENR_M", 0)) as ntl_all_races_both_genders_APENR_rate
+FROM districts
+);
+
+
