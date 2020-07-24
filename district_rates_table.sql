@@ -1,6 +1,7 @@
-drop table if exists district_rates;
+DROP TABLE if exists district_rates;
 
-create table district_rates as (
+CREATE TABLE district_rates as (
+
 SELECT "LEAID"
 , "YEAR"
 , "LEA_STATE_NAME"
