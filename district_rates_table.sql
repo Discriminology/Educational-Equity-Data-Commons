@@ -1,5 +1,9 @@
+drop table if exists district_rates;
+
+create table district_rates as (
 SELECT "LEAID"
 , "YEAR"
+, "LEA_STATE_NAME"
 , ("SCH_DISCWODIS_MULTOOS_BL_M" / NULLIF("SCH_ENR_BL_M", 0)) as BL_M_WODIS_MULTOOS_rate
 , ("SCH_DISCWODIS_MULTOOS_BL_F" / NULLIF("SCH_ENR_BL_F", 0)) as BL_F_WODIS_MULTOOS_rate
 , ("SCH_DISCWODIS_MULTOOS_BL_F" + "SCH_DISCWODIS_MULTOOS_BL_M") / (NULLIF("SCH_ENR_BL_F", 0) + NULLIF("SCH_ENR_BL_M", 0)) as BL_both_genders_WODIS_MULTOOS_rate
@@ -209,6 +213,5 @@ SELECT "LEAID"
 , ("SCH_APENR_HP_F" + "SCH_APENR_HP_M") / (NULLIF("SCH_ENR_HP_F", 0) + NULLIF("SCH_ENR_HP_M", 0)) as HP_both_genders_APENR_rate
 , ("SCH_APENR_TR_M" / NULLIF("SCH_ENR_TR_M", 0)) as TR_M_APENR_rate
 , ("SCH_APENR_TR_F" / NULLIF("SCH_ENR_TR_F", 0)) as TR_F_APENR_rate
-, ("SCH_APENR_TR_F" + "SCH_APENR_TR_M") / (NULLIF("SCH_ENR_TR_F", 0) + NULLIF("SCH_ENR_TR_M", 0)) as TR_both_genders_APENR_rate
-FROM districts
-ORDER BY 1,2;
+, ("SCH_APENR_TR_F" + "SCH_APENR_TR_M") / (NULLIF("SCH_ENR_TR_F", 0) + NULLIF("SCH_ENR_TR_M", 0)) as TR_both_genders_APENR_rate from districts
+order by 1,2);
