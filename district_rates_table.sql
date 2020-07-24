@@ -2,7 +2,7 @@ DROP TABLE if exists district_rates;
 
 CREATE TABLE district_rates as (
 
-SELECT 1 as join_key, "LEAID"
+SELECT "LEAID"
 , "YEAR"
 , "LEA_STATE_NAME"
 , ("SCH_DISCWODIS_MULTOOS_BL_M" / NULLIF("SCH_ENR_BL_M", 0)) as BL_M_WODIS_MULTOOS_rate
