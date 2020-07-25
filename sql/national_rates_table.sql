@@ -1,7 +1,8 @@
 DROP TABLE if exists national_rates;
 
 CREATE TABLE national_rates as (
-SELECT SUM("SCH_DISCWODIS_MULTOOS_WH_M" + "SCH_DISCWODIS_SINGOOS_WH_M") / SUM(NULLIF("SCH_ENR_WH_M", 0)) as ntl_WH_M_WODIS_suspension_rate
+SELECT "YEAR"
+, SUM("SCH_DISCWODIS_MULTOOS_WH_M" + "SCH_DISCWODIS_SINGOOS_WH_M") / SUM(NULLIF("SCH_ENR_WH_M", 0)) as ntl_WH_M_WODIS_suspension_rate
 , SUM("SCH_DISCWODIS_MULTOOS_WH_F" + "SCH_DISCWODIS_SINGOOS_WH_F") / SUM(NULLIF("SCH_ENR_WH_F", 0)) as ntl_WH_F_WODIS_suspension_rate
 , SUM("SCH_DISCWODIS_SINGOOS_WH_M" + "SCH_DISCWODIS_SINGOOS_WH_F" + "SCH_DISCWODIS_MULTOOS_WH_F" + "SCH_DISCWODIS_MULTOOS_WH_M") / SUM(NULLIF("SCH_ENR_WH_F", 0) + NULLIF("SCH_ENR_WH_M", 0)) as ntl_WH_both_genders_WODIS_suspension_rate
 , SUM("SCH_DISCWDIS_MULTOOS_IDEA_WH_M" + "SCH_DISCWDIS_SINGOOS_IDEA_WH_M") / SUM(NULLIF("SCH_IDEAENR_WH_M", 0)) as ntl_WH_M_WDIS_suspension_rate
@@ -48,8 +49,7 @@ SELECT SUM("SCH_DISCWODIS_MULTOOS_WH_M" + "SCH_DISCWODIS_SINGOOS_WH_M") / SUM(NU
 , SUM("TOT_GTENR_F" + "TOT_GTENR_M") / SUM(NULLIF("TOT_ENR_F", 0) + NULLIF("TOT_ENR_M", 0)) as ntl_all_races_both_genders_GTENR_rate
 , SUM("TOT_APENR_M") / SUM(NULLIF("TOT_ENR_M", 0)) as ntl_all_races_M_APENR_rate
 , SUM("TOT_APENR_F") / SUM(NULLIF("TOT_ENR_F", 0)) as ntl_all_races_F_APENR_rate
-, SUM("TOT_APENR_F" + "TOT_APENR_M") / SUM(NULLIF("TOT_ENR_F", 0) + NULLIF("TOT_ENR_M", 0)) as ntl_all_races_both_genders_APENR_rate from districts;
+, SUM("TOT_APENR_F" + "TOT_APENR_M") / SUM(NULLIF("TOT_ENR_F", 0) + NULLIF("TOT_ENR_M", 0)) as ntl_all_races_both_genders_APENR_rate
 FROM districts
+group by 1
 );
-
-
