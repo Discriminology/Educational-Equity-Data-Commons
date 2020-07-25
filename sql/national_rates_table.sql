@@ -28,13 +28,13 @@ SELECT "YEAR"
 , SUM("SCH_APENR_WH_F" + "SCH_APENR_WH_M") / SUM(NULLIF("SCH_ENR_WH_F", 0) + NULLIF("SCH_ENR_WH_M", 0)) as ntl_WH_both_genders_APENR_rate
 
 
-# National rates for all races
+-- National rates for all races
 , SUM("TOT_DISCWODIS_MULTOOS_M" + "TOT_DISCWODIS_SINGOOS_M") / SUM(NULLIF("TOT_ENR_M", 0)) as ntl_all_races_M_WODIS_suspension_rate
 , SUM("TOT_DISCWODIS_MULTOOS_F" + "TOT_DISCWODIS_SINGOOS_F") / SUM(NULLIF("TOT_ENR_F", 0)) as ntl_all_races_F_WODIS_suspension_rate
 , SUM("TOT_DISCWODIS_MULTOOS_F" +"TOT_DISCWODIS_SINGOOS_F" + "TOT_DISCWODIS_MULTOOS_M" + "TOT_DISCWODIS_SINGOOS_F") / SUM((NULLIF("TOT_ENR_F", 0) + NULLIF("TOT_ENR_M", 0))) as ntl_all_races_both_genders_WODIS_suspensions_rate
-, SUM("TOT_DISCWDIS_MULTOOS_IDEA_M" + "TOT_DISCWDIS_SINGOOS_IDEA_M") / SUM(NULLIF("TOT_IDEA_ENR_M", 0)) as ntl_all_races_M_WDIS_suspension_rate
-, SUM("TOT_DISCWDIS_MULTOOS_IDEA_F" + "TOT_DISCWDIS_SINGOOS_IDEA_F") / SUM(NULLIF("TOT_IDEA_ENR_F", 0)) as ntl_all_races_F_WDIS_suspension_rate
-, SUM("TOT_DISCWDIS_MULTOOS_IDEA_F" +"TOT_DISCWDIS_SINGOOS_IDEA_F" + "TOT_DISCWDIS_MULTOOS_IDEA_M" + "TOT_DISCWDIS_SINGOOS_IDEA_F") / SUM((NULLIF("TOT_IDEA_ENR_F", 0) + NULLIF("TOT_IDEA_ENR_M", 0))) as ntl_all_races_both_genders_WDIS_suspensions_rate
+, SUM("TOT_DISCWDIS_MULTOOS_IDEA_M" + "TOT_DISCWDIS_SINGOOS_IDEA_M") / SUM(NULLIF("TOT_IDEAENR_M", 0)) as ntl_all_races_M_WDIS_suspension_rate
+, SUM("TOT_DISCWDIS_MULTOOS_IDEA_F" + "TOT_DISCWDIS_SINGOOS_IDEA_F") / SUM(NULLIF("TOT_IDEAENR_F", 0)) as ntl_all_races_F_WDIS_suspension_rate
+, SUM("TOT_DISCWDIS_MULTOOS_IDEA_F" +"TOT_DISCWDIS_SINGOOS_IDEA_F" + "TOT_DISCWDIS_MULTOOS_IDEA_M" + "TOT_DISCWDIS_SINGOOS_IDEA_F") / SUM((NULLIF("TOT_IDEAENR_F", 0) + NULLIF("TOT_IDEAENR_M", 0))) as ntl_all_races_both_genders_WDIS_suspensions_rate
 , SUM("TOT_DISCWODIS_REF_M") / SUM(NULLIF("TOT_ENR_M", 0)) as ntl_all_races_M_WODIS_REF_rate
 , SUM("TOT_DISCWODIS_REF_F") / SUM(NULLIF("TOT_ENR_F", 0)) as ntl_all_races_F_WODIS_REF_rate
 , SUM("TOT_DISCWODIS_REF_F" + "TOT_DISCWODIS_REF_M") / SUM((NULLIF("TOT_ENR_F", 0) + NULLIF("TOT_ENR_M", 0))) as ntl_all_races_both_genders_WODIS_REF_rate
@@ -53,6 +53,6 @@ SELECT "YEAR"
 , SUM("TOT_APENR_M") / SUM(NULLIF("TOT_ENR_M", 0)) as ntl_all_races_M_APENR_rate
 , SUM("TOT_APENR_F") / SUM(NULLIF("TOT_ENR_F", 0)) as ntl_all_races_F_APENR_rate
 , SUM("TOT_APENR_F" + "TOT_APENR_M") / SUM(NULLIF("TOT_ENR_F", 0) + NULLIF("TOT_ENR_M", 0)) as ntl_all_races_both_genders_APENR_rate
-FROM districts
+from districts
 group by 1
 );
