@@ -1,6 +1,6 @@
-DROP TABLE if exists risk_ratio;
+DROP TABLE if exists risk_ratios;
 
-CREATE TABLE risk_ratio as (
+CREATE TABLE risk_ratios as (
 SELECT "LEAID"
 	, district_rates."YEAR"
 	, "LEA_STATE_NAME"
