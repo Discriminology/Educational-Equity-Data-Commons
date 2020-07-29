@@ -7,6 +7,8 @@ WHERE
 "YEAR" = '2015-16'
 AND "TOTAL_ENROLLMENT" > 1000
 AND "TOTAL_SCHOOLS" > 5
+
+-- at least 100 enrolled students of at least 3 races
 AND (CASE WHEN (
 				("SCH_ENR_HI_F" + "SCH_ENR_HI_M") > 100
 					)
