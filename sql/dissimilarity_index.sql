@@ -1,3 +1,5 @@
+CREATE TABLE dissimilarity_index as (
+
 SELECT "LEAID",
        "YEAR",
        0.5*SUM(abs(wh_frac - bl_frac)) AS D_wh_bl,
@@ -60,6 +62,8 @@ FROM
                                                     END) + (CASE
                                                                 WHEN (("SCH_ENR_HP_F" + "SCH_ENR_HP_M") > 100) THEN 1
                                                                 ELSE 0
-                                                            END)) > 2 ) district_subset ON district_subset."LEAID" = schools."LEAID") dissim_derived
+                                                            END)) > 2 ) district_subset -- filters to districts that meet the criteria
+     ON district_subset."LEAID" = schools."LEAID") dissim_derived
 GROUP BY 1,
-         2;
+         2
+         );
