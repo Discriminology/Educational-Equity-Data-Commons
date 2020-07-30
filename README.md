@@ -29,9 +29,11 @@
 
 ### Analysis overview
 
-After aggregating the data at the school and district level, we compute the district rates, national rates, and risk ratios defined in [this document](https://docs.google.com/document/d/1ZIK8-lsurTP1EPaxh7rvfcUWf2kPhTICwNCeIxdRoC0/edit#):
+1. After aggregating the data at the school and district level, we compute the district rates, national rates, and risk ratios defined in [this document](https://docs.google.com/document/d/1ZIK8-lsurTP1EPaxh7rvfcUWf2kPhTICwNCeIxdRoC0/edit#):
 
 The code in `generate_metric_queries.ipynb` programmatically generates the lines of the query in `national_rates_table.sql` for all gender x race x disability status combinations.
+
+2. Calculate [dissimilarity scores](https://www.dartmouth.edu/~segregation/IndicesofSegregation.pdf) for each race comparing to white students for each district x year, then calculate the [Jenks breaks](https://www.ehdp.com/methods/jenks-natural-breaks-explain.htm) to categorize each district as having `high`, `medium` or `low` dissimilarity.
 
 
 ### Raw data from Department of Education:
