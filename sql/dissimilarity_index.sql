@@ -62,8 +62,8 @@ FROM
                                                     END) + (CASE
                                                                 WHEN (("SCH_ENR_HP_F" + "SCH_ENR_HP_M") > 100) THEN 1
                                                                 ELSE 0
-                                                            END)) > 2 ) district_subset -- filters to districts that meet the criteria
-     ON district_subset."LEAID" = schools."LEAID") dissim_derived
+                                                            END)) > 2 ) district_subset
+     ON district_subset."LEAID" = schools."LEAID") dissim_derived  -- filters to districts that meet the criteria above
 GROUP BY 1,
-         2
+         2 -- Sum across schools in each district to get dissimiliarity score
          );
