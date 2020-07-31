@@ -5,7 +5,8 @@ CREATE TABLE district_rates as (
 SELECT "LEAID"
 , "YEAR"
 , "LEA_STATE_NAME"
--- suspensions
+
+-- Suspensions (single and multiple)
 , ("SCH_DISCWODIS_MULTOOS_BL_M" + "SCH_DISCWODIS_SINGOOS_BL_M") / NULLIF("SCH_ENR_BL_M", 0) as BL_M_WODIS_suspension_rate
 , ("SCH_DISCWODIS_MULTOOS_BL_F" + "SCH_DISCWODIS_SINGOOS_BL_F") / NULLIF("SCH_ENR_BL_F", 0) as BL_F_WODIS_suspension_rate
 , ("SCH_DISCWODIS_SINGOOS_BL_M" + "SCH_DISCWODIS_SINGOOS_BL_F" + "SCH_DISCWODIS_MULTOOS_BL_F" + "SCH_DISCWODIS_MULTOOS_BL_M") / (NULLIF("SCH_ENR_BL_F", 0) + NULLIF("SCH_ENR_BL_M", 0)) as BL_both_genders_WODIS_suspension_rate
