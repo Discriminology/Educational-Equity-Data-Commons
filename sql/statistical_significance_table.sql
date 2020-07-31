@@ -1,4 +1,4 @@
-select * from district_rates join (select "LEAID", "SCH_ENR_BL_M" as dist_wodis_enr_BL_M
+select * from district_rates join (select "YEAR", "LEAID", "SCH_ENR_BL_M" as dist_wodis_enr_BL_M
 		,"SCH_IDEAENR_BL_M" as dist_wodis_wdis_enr_BL_M
 		,"SCH_ENR_BL_F" as dist_wodis_enr_BL_F
 		,"SCH_IDEAENR_BL_F" as dist_wodis_wdis_enr_BL_F
@@ -41,4 +41,8 @@ select * from district_rates join (select "LEAID", "SCH_ENR_BL_M" as dist_wodis_
 		,"SCH_ENR_TR_M" + "SCH_ENR_TR_F" as dist_wodis_enr_TR
 		,"SCH_IDEAENR_TR_M" + "SCH_IDEAENR_TR_F" as dist_wdis_enr_TR from districts) dist_enrs
 		on dist_enrs."LEAID" = district_rates."LEAID"
+		and
+		dist_enrs."YEAR" = district_rates."YEAR"
+		left join national_rates nr
+		on nr."YEAR" = dist_enrs."YEAR"
 	
