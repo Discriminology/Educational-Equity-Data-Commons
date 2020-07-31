@@ -1,4 +1,4 @@
-## Discriminology Data Pipeline
+## Discriminology School Data Pipeline
 
 ### Pipeline overview
 
