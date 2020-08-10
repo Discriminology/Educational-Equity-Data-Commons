@@ -67,3 +67,4 @@ SELECT "YEAR"
 from districts
 group by 1
 );
+

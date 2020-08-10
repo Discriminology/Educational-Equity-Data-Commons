@@ -1,3 +1,5 @@
+# Create statistical significance tables using two sided z test
+
 DROP TABLE if exists district_rates;
 
 CREATE TABLE district_rates as (
