@@ -37,7 +37,7 @@ The code in `generate_metric_queries.ipynb` programmatically generates the lines
 
 3.  Statistical significance flags are stored in the table called `statistical_significance`; a value of `1` indicates that the ratio is statistically significant, meaning that the numerator is significantly higher than the denominator (or, in the case of AP and GT enrollment, lower) at the 95% confidence level.  A value of `0` indicates that there is no statistically significant difference between the numerator and denominator of the ratio at the 95% confidence level.
 
-An illustration of significance testing for rates can be found [here](https://abtestguide.com/calc/)
+Statistical significance was determined by computing the [z statistic](https://en.wikipedia.org/wiki/Z-test) for the rates in the numerator and denominator of each risk ratio.  An illustration of significance testing for rates can be found [here](https://abtestguide.com/calc/)
 
 ### Raw data from Department of Education:
 
