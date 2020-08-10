@@ -2,7 +2,7 @@
 
 ### Pipeline overview
 
-1. Read raw Department of Education `.excel` files
+1. Read raw Department of Education `.excel` [files](https://www2.ed.gov/about/offices/list/ocr/data.html)
 2. Extract desired fields from each year, as defined [here](https://docs.google.com/spreadsheets/d/1Z7BwQ8Sd20Q57UsgkTzopSzbJy3hz2sq2qed4I9kkQI/edit#gid=1997820201)
 3. Replace negative numbers with zeroes and remove other bad characters
    - Negative numbers replaced with zero
@@ -43,6 +43,7 @@ The code in `generate_metric_queries.ipynb` programmatically generates the lines
 - 2011/12 school data
 - 2013/14 school data
 - 2015/16 school data
+- 2017/18 school data (pending release)
 - District Geodata
 
 [Summary table](https://docs.google.com/spreadsheets/d/1h2x2jN24vmPVcQ2Ia72kezs0hD-E0xkjyIhXDCgMq5I/edit#gid=0) of school and district data
