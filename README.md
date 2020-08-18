@@ -33,13 +33,13 @@
 
 The code in `generate_metric_queries.ipynb` programmatically generates the lines of the query in `national_rates_table.sql` for all gender x race x disability status combinations.
 
-2. Calculate [dissimilarity scores](https://www.dartmouth.edu/~segregation/IndicesofSegregation.pdf) for each race comparing to white students for each district x year, then calculate the [Jenks breaks](https://www.ehdp.com/methods/jenks-natural-breaks-explain.htm) to categorize each district as having `high`, `medium` or `low` dissimilarity.
-
-Scores are computed for the 2854 districts with at least 1000 students, 5 schools, and at least 100 students of at least 2 different racial categories.
+2. Calculate [dissimilarity scores](https://www.dartmouth.edu/~segregation/IndicesofSegregation.pdf) for each race comparing to white students for each district x year, then calculate the [Jenks breaks](https://www.ehdp.com/methods/jenks-natural-breaks-explain.htm) to categorize each district as having `high`, `medium` or `low` dissimilarity.  Scores are only computed for the 2854 districts with at least 1000 students, 5 schools, and at least 100 students of at least 2 different racial categories.
 
 3.  Statistical significance flags are stored in the table called `statistical_significance`; a value of `1` indicates that the ratio is statistically significant, meaning that the numerator is significantly higher than the denominator (or, in the case of AP and GT enrollment, lower) at the 95% confidence level.  A value of `0` indicates that there is no statistically significant difference between the numerator and denominator of the ratio at the 95% confidence level, and that the difference is due to random chance.
 
 Statistical significance was determined by computing the [z statistic](https://en.wikipedia.org/wiki/Z-test) for the rates in the numerator and denominator of each risk ratio.  An illustration of significance testing for rates can be found [here](https://abtestguide.com/calc/)
+
+4.  The full dataset is available for viewing [here](https://docs.google.com/spreadsheets/d/1w0FECsBkTdI5LAPiXJmlk68VW6H_gQ6Tor9ZhCryQ20/edit#gid=1688964914)
 
 ### Raw data from Department of Education:
 
