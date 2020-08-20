@@ -16,13 +16,13 @@ SUM("SCH_ENR_HP_M" + "SCH_ENR_HP_F") as hawaiian_pacific_islander_enrollment,
 SUM("SCH_ENR_TR_M" + "SCH_ENR_TR_F") as two_or_more_races_enrollment,
 
 -- Total GT enrollment by race
-SUM("SCH_ENR_WH_M" + "SCH_ENR_WH_F") as white_enrollment,
-SUM("SCH_ENR_BL_M" + "SCH_ENR_BL_F") as black_enrollment,
-SUM("SCH_ENR_HI_M" + "SCH_ENR_HI_F") as hispanic_enrollment,
-SUM("SCH_ENR_AS_M" + "SCH_ENR_AS_F") as asian_enrollment,
-SUM("SCH_ENR_AM_M" + "SCH_ENR_AM_F") as native_american_enrollment,
-SUM("SCH_ENR_HP_M" + "SCH_ENR_HP_F") as hawaiian_pacific_islander_enrollment,
-SUM("SCH_ENR_TR_M" + "SCH_ENR_TR_F") as two_or_more_races_enrollment,
+SUM("SCH_GTENR_WH_M" + "SCH_GTENR_WH_F") as white_GT_enrollment,
+SUM("SCH_GTENR_BL_M" + "SCH_GTENR_BL_F") as black_GT_enrollment,
+SUM("SCH_GTENR_HI_M" + "SCH_GTENR_HI_F") as hispanic_GT_enrollment,
+SUM("SCH_GTENR_AS_M" + "SCH_GTENR_AS_F") as asian_GT_enrollment,
+SUM("SCH_GTENR_AM_M" + "SCH_GTENR_AM_F") as native_american_GT_enrollment,
+SUM("SCH_GTENR_HP_M" + "SCH_GTENR_HP_F") as hawaiian_pacific_islander_GT_enrollment,
+SUM("SCH_GTENR_TR_M" + "SCH_GTENR_TR_F") as two_or_more_races_GT_enrollment,
 
 -- Total AP enrollment by race
 SUM("SCH_APENR_WH_M" + "SCH_APENR_WH_F") as white_AP_enrollment,
