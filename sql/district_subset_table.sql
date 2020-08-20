@@ -1,6 +1,7 @@
 select schools."LEA_NAME", 
 schools."LEA_STATE_NAME",
 schools."YEAR",
+schools."LEAID",
 count(distinct "COMBOKEY") as school_count,
 SUM("SCH_FTESERVICES_PSY" + "SCH_FTESERVICES_SOC") as socioemotional_staff,
 SUM("SCH_FTESECURITY_LEO" + "SCH_FTESECURITY_GUA") as law_enforcement_presence,
@@ -55,6 +56,6 @@ SUM("SCH_APENR_TR_M" + "SCH_APENR_TR_F") as two_or_more_races_AP_enrollment
 from schools inner join classified_dissimilarity_index cdi
 on cdi."LEAID" = schools."LEAID"
 and cdi."YEAR" = schools."YEAR"
-group by 1, 2, 3
+group by 1, 2, 3, 4
 having count(distinct "COMBOKEY") >=5
 order by 1,3; 
