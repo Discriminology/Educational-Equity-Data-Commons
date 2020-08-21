@@ -1,3 +1,4 @@
+create table district_rates_simplified as (
 select "LEA_NAME", "LEA_STATE_NAME", "YEAR", "LEAID",
 -- GT Enrollment rate
 "white_gt_enrollment" / NULLIF("white_enrollment", 0) as white_gt_enrollment_rate,
@@ -36,8 +37,5 @@ select "LEA_NAME", "LEA_STATE_NAME", "YEAR", "LEAID",
 "two_or_more_races_le_referrals_arrests" / NULLIF("two_or_more_races_enrollment", 0) as two_or_more_races_le_referrals_arrests_rate
 
 
-from district_dashboard
-where "LEA_STATE_NAME" in ('CONNECTICUT', 'MAINE', 'MASSACHUSETTS', 'NEW HAMPSHIRE', 'RHODE ISLAND',  'VERMONT',
-'NEW JERSEY', 'NEW YORK', 'PENNSYLVANIA');
-
+from district_dashboard);
 
