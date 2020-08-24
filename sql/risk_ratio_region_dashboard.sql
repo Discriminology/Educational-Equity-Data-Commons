@@ -42,6 +42,56 @@ dd.two_or_more_races_le_referrals_arrests_rate / NULLIF(nwr.national_white_le_re
 
 from district_rates_simplified dd left join national_white_rates nwr
 on dd."YEAR" = nwr."YEAR"
-where "LEA_STATE_NAME" in ('CONNECTICUT', 'MAINE', 'MASSACHUSETTS', 'NEW HAMPSHIRE', 'RHODE ISLAND',  'VERMONT',
+where "LEA_STATE_NAME" in 
+
+-- Region 1
+('CONNECTICUT', 'MAINE', 'MASSACHUSETTS', 'NEW HAMPSHIRE', 'RHODE ISLAND',  'VERMONT',
 'NEW JERSEY', 'NEW YORK', 'PENNSYLVANIA')
 
+-- Region 2
+('ILLINOIS',
+ 'INDIANA',
+ 'MICHIGAN',
+ 'OHIO',
+ 'WISCONSIN',
+ 'IOWA',
+ 'KANSAS',
+ 'MINNESOTA',
+ 'MISSOURI',
+ 'NEBRASKA',
+ 'NORTH DAKOTA',
+ 'SOUTH DAKOTA')
+
+-- Region 3
+('DELAWARE',
+ 'FLORIDA',
+ 'GEORGIA',
+ 'MARYLAND',
+ 'NORTH CAROLINA',
+ 'SOUTH CAROLINA',
+ 'VIRGINIA',
+ 'DISTRICT OF COLUMBIA',
+ 'WEST VIRGINIAALABAMA',
+ 'KENTUCKY',
+ 'MISSISSIPPI',
+ 'TENNESSEE',
+ 'ARKANSAS',
+ 'LOUISIANA',
+ 'OKLAHOMA',
+ 'TEXAS')
+
+-- Region 4
+('ARIZONA',
+ 'COLORADO',
+ 'IDAHO',
+ 'MONTANA',
+ 'NEVADA',
+ 'NEW MEXICO',
+ 'UTAH',
+ 'WYOMING',
+ 'ALASKA',
+ 'CALIFORNIA',
+ 'HAWAII',
+ 'OREGON',
+ 'WASHINGTON'
+)
