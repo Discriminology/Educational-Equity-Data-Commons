@@ -28,7 +28,7 @@ dd.asian_out_of_school_suspension_rate / NULLIF(nwr.national_white_suspension_ra
 dd.native_american_out_of_school_suspension_rate / NULLIF(nwr.national_white_suspension_rate, 0) as native_american_suspension_risk_ratio,
 dd.hawaiian_pacific_islander_out_of_school_suspension_rate / NULLIF(nwr.national_white_suspension_rate, 0) as hawaiian_pacific_islander_suspension_risk_ratio,
 dd.white_out_of_school_suspension_rate / NULLIF(nwr.national_white_suspension_rate, 0) as white_suspension_risk_ratio,
-dd.two_or_more_races_out_of_school_suspension_rate / NULLIF(nwr.national_white_suspension_rate, 0) as wo_or_more_races_suspension_risk_ratio,
+dd.two_or_more_races_out_of_school_suspension_rate / NULLIF(nwr.national_white_suspension_rate, 0) as two_or_more_races_suspension_risk_ratio,
 
 
 -- Law enforcement interactions
