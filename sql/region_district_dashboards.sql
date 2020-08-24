@@ -268,22 +268,62 @@ SUM("SCH_APENR_TR_M" + "SCH_APENR_TR_F") as two_or_more_races_AP_enrollment
 from schools inner join classified_dissimilarity_index cdi
 on cdi."LEAID" = schools."LEAID"
 and cdi."YEAR" = schools."YEAR"
-where schools."LEA_STATE_NAME" in ('DELAWARE',
- 'FLORIDA',
- 'GEORGIA',
- 'MARYLAND',
- 'NORTH CAROLINA',
- 'SOUTH CAROLINA',
- 'VIRGINIA',
- 'DISTRICT OF COLUMBIA',
- 'WEST VIRGINIAALABAMA',
- 'KENTUCKY',
- 'MISSISSIPPI',
- 'TENNESSEE',
- 'ARKANSAS',
- 'LOUISIANA',
- 'OKLAHOMA',
- 'TEXAS')
+where schools."LEA_STATE_NAME" in 
+
+-- Region 1
+('CONNECTICUT', 'MAINE', 'MASSACHUSETTS', 'NEW HAMPSHIRE', 'RHODE ISLAND',  'VERMONT',
+'NEW JERSEY', 'NEW YORK', 'PENNSYLVANIA')
+
+
+-- -- Region 2
+-- ('ILLINOIS',
+--  'INDIANA',
+--  'MICHIGAN',
+--  'OHIO',
+--  'WISCONSIN',
+--  'IOWA',
+--  'KANSAS',
+--  'MINNESOTA',
+--  'MISSOURI',
+--  'NEBRASKA',
+--  'NORTH DAKOTA',
+--  'SOUTH DAKOTA')
+
+-- -- Region 3
+-- ('DELAWARE',
+--  'FLORIDA',
+--  'GEORGIA',
+--  'MARYLAND',
+--  'NORTH CAROLINA',
+--  'SOUTH CAROLINA',
+--  'VIRGINIA',
+--  'DISTRICT OF COLUMBIA',
+--  'WEST VIRGINIA,
+--  'ALABAMA',
+--  'KENTUCKY',
+--  'MISSISSIPPI',
+--  'TENNESSEE',
+--  'ARKANSAS',
+--  'LOUISIANA',
+--  'OKLAHOMA',
+--  'TEXAS')
+
+-- -- Region 4
+-- ('ARIZONA',
+--  'COLORADO',
+--  'IDAHO',
+--  'MONTANA',
+--  'NEVADA',
+--  'NEW MEXICO',
+--  'UTAH',
+--  'WYOMING',
+--  'ALASKA',
+--  'CALIFORNIA',
+--  'HAWAII',
+--  'OREGON',
+--  'WASHINGTON'
+-- )
+
 group by 1, 2, 3, 4
 having count(distinct "COMBOKEY") >=5
 order by 2, 1,3; 
