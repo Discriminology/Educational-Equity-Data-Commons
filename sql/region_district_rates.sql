@@ -37,5 +37,62 @@ select "LEA_NAME", "LEA_STATE_NAME", "YEAR", "LEAID",
 "two_or_more_races_le_referrals_arrests" / NULLIF("two_or_more_races_enrollment", 0) as two_or_more_races_le_referrals_arrests_rate
 
 
-from district_dashboard);
+from district_dashboard
+where "LEA_STATE_NAME" in 
+
+-- Region 1
+('CONNECTICUT', 'MAINE', 'MASSACHUSETTS', 'NEW HAMPSHIRE', 'RHODE ISLAND',  'VERMONT',
+'NEW JERSEY', 'NEW YORK', 'PENNSYLVANIA')
+
+
+-- -- Region 2
+-- ('ILLINOIS',
+--  'INDIANA',
+--  'MICHIGAN',
+--  'OHIO',
+--  'WISCONSIN',
+--  'IOWA',
+--  'KANSAS',
+--  'MINNESOTA',
+--  'MISSOURI',
+--  'NEBRASKA',
+--  'NORTH DAKOTA',
+--  'SOUTH DAKOTA')
+
+-- -- Region 3
+-- ('DELAWARE',
+--  'FLORIDA',
+--  'GEORGIA',
+--  'MARYLAND',
+--  'NORTH CAROLINA',
+--  'SOUTH CAROLINA',
+--  'VIRGINIA',
+--  'DISTRICT OF COLUMBIA',
+--  'WEST VIRGINIA,
+--  'ALABAMA',
+--  'KENTUCKY',
+--  'MISSISSIPPI',
+--  'TENNESSEE',
+--  'ARKANSAS',
+--  'LOUISIANA',
+--  'OKLAHOMA',
+--  'TEXAS')
+
+-- -- Region 4
+-- ('ARIZONA',
+--  'COLORADO',
+--  'IDAHO',
+--  'MONTANA',
+--  'NEVADA',
+--  'NEW MEXICO',
+--  'UTAH',
+--  'WYOMING',
+--  'ALASKA',
+--  'CALIFORNIA',
+--  'HAWAII',
+--  'OREGON',
+--  'WASHINGTON'
+-- )
+
+);
 
