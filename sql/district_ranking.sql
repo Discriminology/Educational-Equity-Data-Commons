@@ -7,6 +7,8 @@ select rrr."LEA_NAME", rrr."LEA_STATE_NAME", di."YEAR", di."LEAID",
 di.d_wh_bl
 , rrr.black_ap_enrollment_ratio
 , rrr.black_suspension_risk_ratio
+, rrr.black_gt_enrollment_ratio
+, rrr.black_arrests_risk_ratio
 , (di.d_wh_bl * (rrr.black_ap_enrollment_ratio + rrr.black_gt_enrollment_ratio + rrr.black_arrests_risk_ratio + rrr.black_suspension_risk_ratio) / 4.0) as inequality_index
 
 
