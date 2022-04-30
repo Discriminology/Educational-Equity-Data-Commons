@@ -113,4 +113,6 @@ schools."LEAID",
 from schools inner join classified_dissimilarity_index cdi
 on cdi."LEAID" = schools."LEAID"
 and cdi."YEAR" = schools."YEAR"
-order by 2, 1,3; 
+order by 2, 1,3;
+
+

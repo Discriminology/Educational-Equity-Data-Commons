@@ -27,7 +27,7 @@ class PostGresLoad(object):
 
         Replaces table in PostGres, or creates it if it doesn't exist.
         """
-        df.to_sql(table, self.conn, index=False, if_exists="replace", method="multi")
+        df.to_sql(table, self.conn, index=False, if_exists="replace", method="multi", chunksize=100)
 
 
     def df_from_rds(self, qry):
