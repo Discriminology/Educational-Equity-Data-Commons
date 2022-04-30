@@ -118,3 +118,18 @@ and cdi."YEAR" = schools."YEAR"
 join newark n
 on n."COMBOKEY" = schools."COMBOKEY"
 order by 2, 1,3;
+
+
+
+-- Newark School risk ratios
+
+select * from school_risk_ratios srr
+join newark n
+on n."COMBOKEY" = srr."COMBOKEY";
+
+
+-- Newark district risk ratios
+
+select * from risk_ratios rr
+join newark n
+on n."LEAID" = rr."LEAID";
