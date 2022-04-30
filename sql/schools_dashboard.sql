@@ -1,6 +1,7 @@
--- Full US
-
-select schools."LEA_NAME", 
+select 
+schools."SCH_NAME", 
+schools."COMBOKEY", 
+schools."LEA_NAME", 
 schools."LEA_STATE_NAME",
 schools."YEAR",
 schools."LEAID",
@@ -113,6 +114,6 @@ schools."LEAID",
 from schools inner join classified_dissimilarity_index cdi
 on cdi."LEAID" = schools."LEAID"
 and cdi."YEAR" = schools."YEAR"
+join newark n
+on n."COMBOKEY" = schools."COMBOKEY"
 order by 2, 1,3;
-
-
