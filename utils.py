@@ -1,10 +1,40 @@
 import pandas as pd
+import os
+import boto3
+import sqlalchemy
 
 """
 
 Utility functions for parsing school and district data
 
 """
+
+
+class PostGresLoad(object):
+    def __init__(self):
+        pg_user = os.getenv("POSTGRES_USER")
+        pg_pass = os.getenv("POSTGRES_PASS")
+        port = '5432'
+        host = 'database-1.comdtsqfuvbv.us-east-2.rds.amazonaws.com'
+        conn_str = f"postgresql://{pg_user}:{pg_pass}@{host}:{port}"
+        self.conn = sqlalchemy.create_engine(conn_str)
+
+
+    def df_to_rds(self, df: pd.DataFrame, table: str):
+        """
+        INPUT: dataframe, name of table to append to
+        OUTPUT: None
+
+        Replaces table in PostGres, or creates it if it doesn't exist.
+        """
+        df.to_sql(table, self.conn, index=False, if_exists="replace", method="multi")
+
+
+    def df_from_rds(self, qry):
+        df = pd.read_sql_query(qry, con=self.conn)
+        return df
+
+
 
 def join_col_descriptions(agg_data):
     '''
