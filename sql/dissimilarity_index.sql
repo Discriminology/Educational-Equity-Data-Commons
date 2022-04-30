@@ -1,3 +1,5 @@
+DROP TABLE if exists dissimilarity_index;
+
 CREATE TABLE dissimilarity_index as (
 
 SELECT "LEAID",
@@ -38,7 +40,7 @@ FROM
    INNER JOIN
      (SELECT "LEAID"
       FROM districts
-      WHERE "YEAR" = '2015-16'
+      WHERE "YEAR" = '2017-18'
         AND "TOTAL_ENROLLMENT" > 1000
         AND "TOTAL_SCHOOLS" > 5
         AND (CASE
