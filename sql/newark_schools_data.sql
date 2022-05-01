@@ -1,3 +1,4 @@
+--- SCHOOL-LEVEL DATA
 select 
 schools."SCH_NAME", 
 schools."SCH_ID",
@@ -112,24 +113,31 @@ schools."YEAR",
 + "SCH_DISCWDIS_ARR_IDEA_TR_M"
 + "SCH_DISCWDIS_ARR_IDEA_TR_F") as two_or_more_races_le_referrals_arrests 
 
-from schools inner join classified_dissimilarity_index cdi
-on cdi."LEAID" = schools."LEAID"
-and cdi."YEAR" = schools."YEAR"
-join newark n
-on n."COMBOKEY" = schools."COMBOKEY"
-order by 2, 1,3;
-
-
-
 -- Newark School risk ratios
-
 select * from school_risk_ratios srr
 join newark n
 on n."COMBOKEY" = srr."COMBOKEY";
 
+-- Newark school rates
+select * from school_rates sr
+join newark n
+on n."COMBOKEY" = sr."COMBOKEY";
+
+
+--- DISTRICT-LEVEL DATA
+
+-- District-level dissimilarity scores
+select * from
+classified_dissimilarity_index cdi
+where "LEAID" = '3411340';
 
 -- Newark district risk ratios
-
 select * from risk_ratios rr
 join newark n
 on n."LEAID" = rr."LEAID";
+
+-- Newark district rates
+select * from district_rates dr
+join newark n
+on n."LEAID" = dr."LEAID";
+
