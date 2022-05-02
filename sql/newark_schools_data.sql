@@ -1,14 +1,20 @@
 --- SCHOOL-LEVEL DATA
 select 
 schools."SCH_NAME", 
+schools."YEAR",
 schools."SCH_ID",
 schools."COMBOKEY", 
 schools."LEAID",
 schools."LEA_NAME", 
 schools."LEA_STATE_NAME",
-schools."YEAR",
+'013' as county_fips,
+'34' as state_fips,
 ("SCH_FTESERVICES_PSY" + "SCH_FTESERVICES_SOC") as socioemotional_staff,
 ("SCH_FTESECURITY_LEO" + "SCH_FTESECURITY_GUA") as law_enforcement_presence,
+
+--Total enrollment
+("TOT_ENR_M" + "TOT_ENR_F") as total_enrollment,
+
 
 -- Total enrollment by race
 ("SCH_ENR_WH_M" + "SCH_ENR_WH_F") as white_enrollment,
@@ -112,6 +118,14 @@ schools."YEAR",
 + "SCH_DISCWODIS_ARR_TR_F"
 + "SCH_DISCWDIS_ARR_IDEA_TR_M"
 + "SCH_DISCWDIS_ARR_IDEA_TR_F") as two_or_more_races_le_referrals_arrests 
+
+from schools inner join classified_dissimilarity_index cdi
+on cdi."LEAID" = schools."LEAID"
+and cdi."YEAR" = schools."YEAR"
+join newark n
+on n."COMBOKEY" = schools."COMBOKEY"
+order by 1, 2;
+
 
 -- Newark School risk ratios
 select * from school_risk_ratios srr

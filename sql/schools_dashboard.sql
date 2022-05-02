@@ -8,6 +8,9 @@ schools."LEAID",
 ("SCH_FTESERVICES_PSY" + "SCH_FTESERVICES_SOC") as socioemotional_staff,
 ("SCH_FTESECURITY_LEO" + "SCH_FTESECURITY_GUA") as law_enforcement_presence,
 
+--Total enrollment
+("TOT_ENR_M" + "TOT_ENR_F") as total_enrollment,
+
 -- Total enrollment by race
 ("SCH_ENR_WH_M" + "SCH_ENR_WH_F") as white_enrollment,
 ("SCH_ENR_BL_M" + "SCH_ENR_BL_F") as black_enrollment,
