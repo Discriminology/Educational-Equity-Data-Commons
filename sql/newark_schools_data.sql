@@ -2,7 +2,7 @@
 select 
 schools."SCH_NAME", 
 schools."YEAR",
-schools."SCH_ID",
+schools."SCHID",
 schools."COMBOKEY", 
 schools."LEAID",
 schools."LEA_NAME", 
