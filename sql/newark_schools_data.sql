@@ -138,20 +138,31 @@ join newark n
 on n."COMBOKEY" = sr."COMBOKEY";
 
 
+
+
 --- DISTRICT-LEVEL DATA
+
+-- Raw district-level data
+select * from districts where "LEAID" ='3411340'
+order by "YEAR" asc
+;
 
 -- District-level dissimilarity scores
 select * from
 classified_dissimilarity_index cdi
-where "LEAID" = '3411340';
+where "LEAID" = '3411340'
+order by "YEAR" asc
+;
 
 -- Newark district risk ratios
 select * from risk_ratios rr
-join newark n
-on n."LEAID" = rr."LEAID";
+where rr."LEAID" = '3411340'
+order by "YEAR" asc
+;
 
 -- Newark district rates
 select * from district_rates dr
-join newark n
-on n."LEAID" = dr."LEAID";
+where dr. "LEAID" = '3411340'
+order by "YEAR" asc
+;
 
