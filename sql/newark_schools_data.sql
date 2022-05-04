@@ -1,6 +1,6 @@
 --- SCHOOL-LEVEL DATA
 select 
-s."SCH_NAME", 
+sn.school_name, 
 s."YEAR",
 s."SCHID",
 s."COMBOKEY", 
@@ -142,6 +142,14 @@ s."LEA_STATE_NAME",
 , sr.hi_both_genders_apenr_rate
 
 from schools s
+join
+(select MAX("SCH_NAME") school_name, "COMBOKEY"
+from schools
+where "LEAID" = '3411340'
+group by 2
+order by 2
+) sn
+on s."COMBOKEY" = sn."COMBOKEY"
 join newark n
 on n."COMBOKEY" = s."COMBOKEY"
 join
@@ -153,6 +161,7 @@ school_rates sr
 on s."COMBOKEY" = sr."COMBOKEY"
 and s."YEAR" = sr."YEAR"
 order by 1, 2;
+;
 
 
 -- Schools raw data
