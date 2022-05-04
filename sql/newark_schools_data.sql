@@ -119,21 +119,34 @@ schools."LEA_STATE_NAME",
 + "SCH_DISCWDIS_ARR_IDEA_TR_M"
 + "SCH_DISCWDIS_ARR_IDEA_TR_F") as two_or_more_races_le_referrals_arrests 
 
-from schools inner join classified_dissimilarity_index cdi
-on cdi."LEAID" = schools."LEAID"
-and cdi."YEAR" = schools."YEAR"
+from schools
+join newark n
+on n."COMBOKEY" = schools."COMBOKEY"
+order by 1, 2;
+
+-- Schools raw data
+select *
+from schools
 join newark n
 on n."COMBOKEY" = schools."COMBOKEY"
 order by 1, 2;
 
 
 -- Newark School risk ratios
-select * from school_risk_ratios srr
+select s."SCHID", s."SCH_NAME", srr.* from
+schools s join
+school_risk_ratios srr
+on s."COMBOKEY" = srr."COMBOKEY"
+and s."YEAR" = srr."YEAR"
 join newark n
 on n."COMBOKEY" = srr."COMBOKEY";
 
 -- Newark school rates
-select * from school_rates sr
+select s."SCHID", s."SCH_NAME", sr.* from
+schools s join
+school_rates sr
+on s."COMBOKEY" = sr."COMBOKEY"
+and s."YEAR" = sr."YEAR"
 join newark n
 on n."COMBOKEY" = sr."COMBOKEY";
 
@@ -143,25 +156,37 @@ on n."COMBOKEY" = sr."COMBOKEY";
 --- DISTRICT-LEVEL DATA
 
 -- Raw district-level data
-select * from districts where "LEAID" ='3411340'
+select * from districts d
+where "LEAID" ='3411340'
 order by "YEAR" asc
 ;
 
 -- District-level dissimilarity scores
-select * from
+select d."LEA_NAME", cdi.* from
+districts d join
 classified_dissimilarity_index cdi
-where "LEAID" = '3411340'
-order by "YEAR" asc
+on d."LEAID" = cdi."LEAID"
+and d."YEAR" = cdi."YEAR"
+where d."LEAID" = '3411340'
+order by d."YEAR" asc
 ;
 
 -- Newark district risk ratios
-select * from risk_ratios rr
+select d."LEA_NAME", rr.*
+from risk_ratios rr
+join districts d
+on d."LEAID" = rr."LEAID"
+and d."YEAR" = rr."YEAR"
 where rr."LEAID" = '3411340'
 order by "YEAR" asc
 ;
 
 -- Newark district rates
-select * from district_rates dr
+select d."LEA_NAME", dr.*
+from district_rates dr
+join districts d
+on d."LEAID" = dr."LEAID"
+and d."YEAR" = dr."YEAR"
 where dr. "LEAID" = '3411340'
 order by "YEAR" asc
 ;
