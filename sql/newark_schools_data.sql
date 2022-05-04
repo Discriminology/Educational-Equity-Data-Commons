@@ -1,12 +1,12 @@
 --- SCHOOL-LEVEL DATA
 select 
-schools."SCH_NAME", 
-schools."YEAR",
-schools."SCHID",
-schools."COMBOKEY", 
-schools."LEAID",
-schools."LEA_NAME", 
-schools."LEA_STATE_NAME",
+s."SCH_NAME", 
+s."YEAR",
+s."SCHID",
+s."COMBOKEY", 
+s."LEAID",
+'Newark Public School District' as "LEA_NAME", 
+s."LEA_STATE_NAME",
 '013' as county_fips,
 '34' as state_fips,
 ("SCH_FTESERVICES_PSY" + "SCH_FTESERVICES_SOC") as socioemotional_staff,
@@ -119,10 +119,41 @@ schools."LEA_STATE_NAME",
 + "SCH_DISCWDIS_ARR_IDEA_TR_M"
 + "SCH_DISCWDIS_ARR_IDEA_TR_F") as two_or_more_races_le_referrals_arrests 
 
-from schools
+, srr.bl_m_wodis_ref_risk_ratio_all_races
+, srr.bl_m_wodis_ref_risk_ratio_white
+, srr.bl_f_wodis_ref_risk_ratio_all_races
+, srr.bl_f_wodis_ref_risk_ratio_white
+, srr.bl_both_genders_wodis_ref_risk_ratio_all_races
+, srr.bl_both_genders_wodis_ref_risk_ratio_white
+, srr.hi_m_wodis_ref_risk_ratio_all_races
+, srr.hi_m_wodis_ref_risk_ratio_white
+, srr.hi_f_wodis_ref_risk_ratio_all_races
+, srr.hi_f_wodis_ref_risk_ratio_white
+, srr.hi_both_genders_wodis_ref_risk_ratio_all_races
+, srr.hi_both_genders_wodis_ref_risk_ratio_white
+, sr.bl_both_genders_wodis_suspension_rate
+, sr.bl_both_genders_wdis_suspension_rate
+, sr.hi_both_genders_wodis_suspension_rate
+, sr.hi_both_genders_wdis_suspension_rate
+, sr.bl_both_genders_wodis_arr_rate
+, sr.hi_both_genders_wodis_arr_rate
+
+, sr.bl_both_genders_apenr_rate
+, sr.hi_both_genders_apenr_rate
+
+from schools s
 join newark n
-on n."COMBOKEY" = schools."COMBOKEY"
+on n."COMBOKEY" = s."COMBOKEY"
+join
+school_risk_ratios srr
+on s."COMBOKEY" = srr."COMBOKEY"
+and s."YEAR" = srr."YEAR"
+join
+school_rates sr
+on s."COMBOKEY" = sr."COMBOKEY"
+and s."YEAR" = sr."YEAR"
 order by 1, 2;
+
 
 -- Schools raw data
 select *
